@@ -39,5 +39,5 @@ Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verkli
 Jag pratar gärna arkitektur, data-livscykler eller hur man hanterar oväntade null-värden i schemalösa API:er.  
 Fler projekt t.ex labbar/examinationsuppgifter ifrån tidigare kurser går att hitta under mina repositorys.
 * **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/johnny-hyytiainen/)
-* **Email:** [Email](johnny.hyytiainen@gmail.com)
+* **Email:** [johnny.hyytiainen@gmail.com](johnny.hyytiainen@gmail.com)
 
