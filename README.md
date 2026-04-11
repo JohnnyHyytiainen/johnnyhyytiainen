@@ -1,5 +1,5 @@
 # 👋 Hej, jag är Johnny! | Data Engineering Student @ STI
-
+**[Click here for English version](https://github.com/JohnnyHyytiainen/johnnyhyytiainen/edit/main/README_ENG.md)
 Jag bygger robusta, skalbara datapipelines och drivs av att lösa verkliga problem från rådata till affärsvärde. Jag är för närvarande under utbildning till Data Engineer vid Stockholms Tekniska Institut (STI) och letar efter en **LIA-plats (praktik) inför våren 2027**.
 
 Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verklighetens stökiga kantfall, och var alltid redo att anpassa tech-stacken efter affärens behov.*
