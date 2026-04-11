@@ -1,5 +1,5 @@
 # 👋 Hi, I'm Johnny! | Data Engineering Student @ STI
-
+ 
 I build robust, scalable data pipelines and am driven by solving real-world problems from raw data to business value. I'm currently studying to be a Data Engineer at Stockholm Institute of Technology (STI) and am looking for a **LIA (internship) position for spring 2027**.
 
 My philosophy is simple: *Leave the tutorial data, build systems that handle real-world messy edge cases, and always be ready to adapt the tech stack to the needs of the business.*
