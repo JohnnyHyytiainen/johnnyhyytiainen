@@ -9,7 +9,7 @@ Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verkli
 ## Utvalda Projekt (Flaggskepp)
 
 ### [GitHub Data Lake (Medallion Architecture)](https://github.com/JohnnyHyytiainen/data-lake-project)
-**Pågående projekt**
+**Status:** *MVP v3 pågående*
 
 **Stack:** Kafka (KRaft), Python, Pandas, PySpark, dbt, Docker, Parquet
 * Designade en end-to-end strömmande datapipeline som drar live-events från GitHub API.
@@ -17,7 +17,7 @@ Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verkli
 * Löste komplexa schema-utmaningar (schema inference bugs) vid konvertering av stökiga API-svar till optimerad kolumnbaserad lagring (Parquet).
 
 ### [Glossary DB (RAG & Vector Search)](https://github.com/JohnnyHyytiainen/glossary_db)
-**Pågående projekt**
+**Status:** *Under utveckling*
 
 **Stack:** Python, Vector Databases, LLMs, RAG-arkitektur
 * Utvecklade en AI-driven sökapplikation (Retrieval-Augmented Generation) för att effektivt lagra och hämta Data Engineering-koncept.
