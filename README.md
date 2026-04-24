@@ -9,7 +9,7 @@ My philosophy is simple: *Leave the tutorial data, build systems that handle rea
 ## Featured Projects (Flagship)
 
 ### [GitHub Data Lake (Medallion Architecture)](https://github.com/JohnnyHyytiainen/data-lake-project)
-**Status:** *MVP v3 in progress.
+**Status:** *MVP v3 in progress*
 
 **Stack:** Kafka (KRaft), Python, Pandas, PySpark, dbt, Docker, Parquet
 * Designed an end-to-end streaming data pipeline that pulls live events from the GitHub API.
