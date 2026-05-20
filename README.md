@@ -30,7 +30,7 @@ My philosophy is simple: *Leave the tutorial data, build systems that handle rea
 * **Data Engineering & Pipelines:** Apache Kafka, dbt, PySpark, Pandas
 * **Databases & Storage:** DuckDB (OLAP), PostgreSQL (OLTP), Parquet, Dimensional Modeling
 * **Infrastructure & DevOps:** Docker, GitHub Actions (CI/CD), Pytest
-* **BI & Visualization:** PowerBI, Streamlit, Matplotlib
+* **BI & Visualization:** PowerBI, Streamlit, Matplotlib, Grafana
 * **Upcoming / Ongoing:** AWS/Azure (Cloud Platforms), Terraform
 
 ---
