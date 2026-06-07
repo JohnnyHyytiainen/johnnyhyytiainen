@@ -1,5 +1,6 @@
 # Hej, jag är Johnny! | Data Engineering Student @ STI
-**[Click here for English version](https://github.com/JohnnyHyytiainen/johnnyhyytiainen/edit/main/README_ENG.md)**  
+**[Click here for English version](https://github.com/JohnnyHyytiainen/johnnyhyytiainen/blob/main/README.md)**
+
 Jag bygger robusta, skalbara datapipelines och drivs av att lösa verkliga problem från rådata till affärsvärde. Jag är för närvarande under utbildning till Data Engineer vid Stockholms Tekniska Institut (STI) och letar efter en **LIA-plats (praktik) inför våren 2027**.
 
 Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verklighetens stökiga kantfall, och var alltid redo att anpassa tech-stacken efter affärens behov.*
@@ -8,35 +9,50 @@ Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verkli
 
 ## Utvalda Projekt (Flaggskepp)
 
-### [GitHub Data Lake (Medallion Architecture)](https://github.com/JohnnyHyytiainen/data-lake-project)
-**Status:** *MVP v3 pågående*
+### [GitHub Data Lake (Medallion-arkitektur)](https://github.com/JohnnyHyytiainen/data-lake-project)
+**Status:** *Aktiv och under utveckling v3.x.x - MVP v3 klar, Airflow-orkestrering, dbt-transformationer, Grafana serving-lager*
 
-**Stack:** Kafka (KRaft), Python, Pandas, PySpark, dbt, Docker, Parquet
-* Designade en end-to-end strömmande datapipeline som drar live-events från GitHub API.
-* Hanterar data från Ingestion (Bronze) via Kafka, deduplicering och validering av nästlad JSON (Silver), redo för analytiska vyer (Gold).
-* Löste komplexa schema-utmaningar (schema inference bugs) vid konvertering av stökiga API-svar till optimerad kolumnbaserad lagring (Parquet).
+**Stack:** Kafka (KRaft), PySpark, dbt, Airflow, DuckDB, Grafana, Docker, Parquet
 
-### [Glossary DB (RAG & Vector Search)](https://github.com/JohnnyHyytiainen/glossary_db)
-**Status:** *Under utveckling*
+* End-to-end strömmande pipeline som konsumerar live-events från GitHub API - 3M+ deduplicerade Silver-records genom Bronze -> Silver -> Gold.
 
-**Stack:** Python, Vector Databases, LLMs, RAG-arkitektur
-* Utvecklade en AI-driven sökapplikation (Retrieval-Augmented Generation) för att effektivt lagra och hämta Data Engineering-koncept.
-* Demonstrerar förståelse för moderna AI/MLOps-mönster och hur man integrerar språkmodeller med egna databaser.
+* Kafka-producer (KRaft, utan ZooKeeper), PySpark Bronze-till-Silver med schemavalidering, och tre Gold-tabeller: verktygs-trender, community-aktivitetsheatmap och PR-cykeltider. (Mer insikter arbetas akrivt på)
+
+* Orkestrerat med Apache Airflow, SQL-transformationer via dbt, serverat från DuckDB till Grafana-dashboards.
+
+* Diagnostiserade och löste verkliga produktions-buggar: PyArrow tyst schemadropp, kartesisk produkt i self-join, och inkonsekvent partitionsnyckelpadding.
+
+---
+
+### [Glossary DB (FastAPI + RAG + Streamlit)](https://github.com/JohnnyHyytiainen/glossary_db)
+**Status:** *Aktiv och under utveckling v1.4.x*
+
+**Stack:** FastAPI, PostgreSQL, SQLAlchemy, ChromaDB, Sentence-Transformers, Grunden.ai (GLM 5.1), Streamlit, Docker, Alembic
+
+* AI-driven Data Engineering-kunskapsbas med 500+ termer inom 11 kategorier (Python, SQL, Data Engineering, AI Engineering, LLMOps med flera).
+
+* Fullständig RAG-pipeline: PostgreSQL som relationell källa till sanning -> ChromaDB vektorindex (all-MiniLM-L6-v2 embeddings) -> Grunden.ai (GLM 5.1) för flerspråkig generering.
+
+* Explainable AI (XAI): varje svar inkluderar en `sources`-array med exakta ordlisttermer som användes - inga hallucinationer by design.
+* Streamlit-frontend med modulärt `ui/`-paket - fullständigt decoupled från backend, kommunicerar enbart via HTTP.
 
 ---
 
 ## 🛠️ Tech Stack & Verktyg
 
-* **Data Engineering & Pipelines:** Apache Kafka, dbt, PySpark, Pandas
-* **Databaser & Lagring:** DuckDB (OLAP), PostgreSQL (OLTP), Parquet, Dimensional Modeling
-* **Infrastruktur & DevOps:** Docker, GitHub Actions (CI/CD), Pytest
-* **BI & Visualisering:** PowerBI, Streamlit, Matplotlib
-* **Kommande / Pågående:** AWS/Azure (Molnplattformar), Terraform
+* **Data Engineering & Pipelines:** Apache Kafka, Apache Spark (PySpark), dbt, Pandas, Airflow, Databricks
+* **Databaser & Lagring:** DuckDB (OLAP), PostgreSQL (OLTP), ChromaDB (Vektor), Parquet, Dimensional Modeling
+* **AI & ML:** RAG-pipelines, vektorembeddings, LLM-integration (Grunden.ai / OpenAI-kompatibla API:er)
+* **Backend & API:** FastAPI, SQLAlchemy, Pydantic, Alembic
+* **Infrastruktur & DevOps:** Docker, GitHub Actions (CI/CD), Pytest, Ruff, Black
+* **BI & Visualisering:** Grafana, Streamlit, Matplotlib, PowerBI
+* **Kommande / Pågående:** AWS / Azure, Terraform
 
 ---
 
 ## 📫 Låt oss ta en kaffe!
-Jag pratar gärna arkitektur, data-livscykler eller hur man hanterar oväntade null-värden i schemalösa API:er.  
-Fler projekt t.ex labbar/examinationsuppgifter ifrån tidigare kurser går att hitta under mina repositorys.
-* **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/johnny-hyytiainen/)
-* **Email:** [johnny.hyytiainen@gmail.com](johnny.hyytiainen@gmail.com)
+Jag pratar gärna arkitektur, data-livscykler eller hur man hanterar oväntade null-värden i schemalösa API:er.
+Fler projekt - labbar och examinationsuppgifter från tidigare kurser - går att hitta under mina repositories.
+
+* **LinkedIn:** [linkedin.com/in/johnny-hyytiainen](https://www.linkedin.com/in/johnny-hyytiainen/)
+* **Email:** [johnny.hyytiainen@gmail.com](mailto:johnny.hyytiainen@gmail.com)
