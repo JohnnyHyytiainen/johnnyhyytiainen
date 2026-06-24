@@ -10,7 +10,7 @@ My philosophy is simple: *Leave the tutorial data, build systems that handle rea
 ## Featured Projects (Flagship)
 
 ### [GitHub Data Lake (Medallion Architecture)](https://github.com/JohnnyHyytiainen/data-lake-project)
-**Status:** *Active v3.x.x - MVP v3 complete, Airflow orchestration, dbt transformations, Grafana serving layer*
+**Status:** *Active v5.x.x - MVP v5 ongoing, Deeper Analysis for Better Insights regarding Github's Data. *
 
 **Stack:** Kafka (KRaft), PySpark, dbt, Airflow, DuckDB, Grafana, Docker, Parquet
 
