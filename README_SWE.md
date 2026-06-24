@@ -10,7 +10,7 @@ Min filosofi är enkel: *Lämna tutorial-datan, bygga system som hanterar verkli
 ## Utvalda Projekt (Flaggskepp)
 
 ### [GitHub Data Lake (Medallion-arkitektur)](https://github.com/JohnnyHyytiainen/data-lake-project)
-**Status:** *Aktiv och under utveckling v3.x.x - MVP v3 klar, Airflow-orkestrering, dbt-transformationer, Grafana serving-lager*
+**Status:** *Aktiv och under utveckling v5.x.x - MVP v5 pågår, djupare analys för mer insikter kring Githubs data.*
 
 **Stack:** Kafka (KRaft), PySpark, dbt, Airflow, DuckDB, Grafana, Docker, Parquet
 
