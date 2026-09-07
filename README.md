@@ -46,9 +46,7 @@ My philosophy is simple: *Let go of and leave the tutorial data behind, build sy
 * Explainable AI (XAI): every response includes a `sources` array of the exact glossary terms used - no hallucinations by design.
 * Streamlit frontend with a modular `ui/` package - fully decoupled from the backend, communicates via HTTP only.
 ---
- 
-## More projects - labs and exam assignments from previous courses - can be found under my repositories.
----
+
  
 ## 🛠️ Tech Stack & Tools
  
@@ -56,16 +54,16 @@ My philosophy is simple: *Let go of and leave the tutorial data behind, build sy
 * **Databases & Storage:** PostgreSQL (OLTP), DuckDB (OLAP), ChromaDB (Vector), Parquet, S3 / object storage (boto3), Dimensional Modeling
 * **AI & ML:** RAG pipelines, vector embeddings, rerankers, LLM integration (Grunden.ai / OpenAI-compatible APIs)
 * **Backend & API:** FastAPI, SQLAlchemy, Pydantic, Alembic
-* **Infrastructure & DevOps:** Docker, Terraform, Azure (Container Apps, ACR), GitHub Actions (CI/CD), Pytest, Ruff
+* **Infrastructure & DevOps:** Docker, GitHub Actions (CI/CD), Pytest, Ruff, and Azure Container Apps + ACR [provisioned with Terraform](https://github.com/JohnnyHyytiainen/lab_azure_fullstack_DE25_johnny_hyytiainen)
 * **BI & Visualization:** Grafana, Streamlit, Matplotlib, Power BI
 * **Learning right now:** Snowflake, dlt and Dagster - the genuinely new parts of a data warehouse lifecycle course running this autumn. The rest of that stack (dbt, Streamlit, Azure) is already above, and Dagster is orchestration I've done before in Airflow. Next after that: data contracts, which the course doesn't cover, which is exactly why.
 ---
- 
+
 ## 📫 Let's have a coffee!
  
-I'm happy to talk about architecture, data lifecycles, or how to handle unexpected null values in schemaless APIs. I've also been assigned the role as Scrum Master for a cross-functional data platform project, so I'm just as happy to talk about how a team gets from a business requirement to a shipped pipeline.
+I'm happy to talk about architecture, data lifecycles, or how to handle unexpected null values in schemaless APIs. I've also led a cross-functional data platform project as Scrum Master and tech lead, so I'm just as happy to talk about how a team gets from a business requirement to a shipped pipeline.
  
-I work in Swedish and English. More course labs and exam assignments are under my repositories.
- 
+I work in Swedish and English. **More course labs and exam assignments are under my repositories.**
+
 * **LinkedIn:** [linkedin.com/in/johnny-hyytiainen](https://www.linkedin.com/in/johnny-hyytiainen/)
 * **Email:** [johnny.hyytiainen@gmail.com](mailto:johnny.hyytiainen@gmail.com)
