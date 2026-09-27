@@ -30,7 +30,7 @@ My philosophy is simple: *Let go of and leave the tutorial data behind, build sy
  
 **Stack:** Kafka (KRaft), PySpark, dbt, Airflow, DuckDB, Grafana, Docker, Parquet
  
-* End-to-end streaming pipeline consuming the live GitHub Events API - 3M+ deduplicated Silver records across Bronze -> Silver -> Gold layers.
+* End-to-end streaming pipeline consuming the live GitHub Events API - 2.1M+ deduplicated Silver records across Bronze -> Silver -> Gold layers.
 * Built the Kafka producer (KRaft, no ZooKeeper), PySpark Bronze-to-Silver transformation with schema validation, and three Gold analytical models: tool growth trends, community activity heatmap, and PR cycle times. (More insights to come.)
 * Orchestrated with Apache Airflow, SQL transformations via dbt, served from DuckDB to Grafana dashboards.
 * Diagnosed and fixed real production-grade bugs: PyArrow silent schema inference drop, a cartesian product fan trap in a self-join, and partition zero-padding inconsistencies.
