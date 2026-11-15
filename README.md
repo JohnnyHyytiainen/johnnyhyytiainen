@@ -11,14 +11,14 @@ My philosophy is simple: *Let go of and leave the tutorial data behind, build sy
 ## Degree Project (Examensarbete)
  
 ### [project3-kms - A RAG Knowledge Management System](https://github.com/JohnnyHyytiainen/project3-kms)
-**Status:** *MVP v1 complete (`v1.0.0`) - MVP v2 built and verified end-to-end - MVP v3 (embeddings) next*
+**Status:** *MVP v1-v3 complete (`v3.0.0`) - MVP v4 (serving) in progress: search, answers with cited sources, an eval harness and request tracing are built; a model selector and a query page are next*
  
-**Stack:** PostgreSQL, SQLAlchemy 2.0, Alembic, LocalStack S3, PyMuPDF, PyArrow / Parquet, ChromaDB, FastAPI, Docker, GitHub Actions
+**Stack:** PostgreSQL, SQLAlchemy 2.0, Alembic, PyMuPDF, ChromaDB, Grunden.ai (bge-m3 embeddings, GLM answers), PydanticAI, FastAPI, Pydantic Logfire, Docker, GitHub Actions
  
-* Retrieval-Augmented Generation system over a real 745-file corpus - PDFs, markdown and video transcripts across 13 course repositories - through a Bronze -> Silver -> Gold medallion pipeline. Every answer has to trace back to its exact source chunk.
-* Every number in the repo is counted, not estimated: 745 files on disk -> 473 ingested -> 407 rows after content-hash dedup (66 duplicates, 14.0 %), 90 of 94 unique PDFs extracted, ~28 s for a full rebuild from an empty stack.
-* That 14 % dedup rate turned out to be a provenance problem rather than a storage win: a file reused across two courses collapses into one row with one course tag, which quietly breaks course-filtered retrieval. It gets a junction table *before* anything is embedded - metadata added after indexing means re-embedding everything.
-* Failed documents get a reason code on the row instead of a crash. Four codes separate "no extractable text" from "text below threshold", because the second answer means the document had content all along and the threshold is what's wrong.
+* Retrieval-Augmented Generation over a real corpus: 692 PDF, markdown and transcript files across 13 courses -> 631 unique documents -> 7,712 embedded chunks. Content and copies are split, so a lecture reused across courses is stored once and keeps every course link. Postgres is the source of truth; ChromaDB is a derivative that a full rebuild recreates in about 110 s, and a reconciliation step proves every vector has its row and every row its vector.
+* `POST /ask` returns the answer and its sources. The sources are the retrieved rows from Postgres, never text from the model - a model can make up a filename, a database row can't. Answers come in the language of the question, with citations that match the ranks.
+* Measured, not guessed: a hand-written eval set of 30 dev and 10 hold-out questions, scored with hit rate@k and MRR. After text cleaning, a right document is in the top five for 26 of 30 dev questions and ranked first for 21. With 30 questions one question moves the score 3.3 points, so the set grows before small improvements are judged.
+* Every request is traced with Logfire, from the endpoint through embedding, the vector search and each Postgres query to the model call and its tokens. In the first traced request the answer model took 3.5 of 4.0 seconds, while twelve per-hit database queries (an N+1 pattern) took 24 ms - so they stay as they are until they matter. Unit tests are blocked from sending telemetry, and a deliberate sabotage proved the block holds.
 *Course material is used with written permission from the instructors, obtained before ingestion began, and is not redistributed with the repository.*
  
 ---
@@ -50,13 +50,13 @@ My philosophy is simple: *Let go of and leave the tutorial data behind, build sy
  
 ## 🛠️ Tech Stack & Tools
  
-* **Data Engineering & Pipelines:** Apache Kafka, Apache Spark (PySpark), dbt, Airflow, Pandas, Databricks
-* **Databases & Storage:** PostgreSQL (OLTP), DuckDB (OLAP), ChromaDB (Vector), Parquet, S3 / object storage (boto3), Dimensional Modeling
-* **AI & ML:** RAG pipelines, vector embeddings, rerankers, LLM integration (Grunden.ai / OpenAI-compatible APIs)
+* **Data Engineering & Pipelines:** Apache Kafka, Apache Spark (PySpark), dbt, dlt, Airflow, Dagster, Pandas, Databricks
+* **Databases & Storage:** PostgreSQL (OLTP), DuckDB (OLAP), Snowflake (cloud data warehouse), ChromaDB (Vector), Parquet, S3 / object storage (boto3), Dimensional Modeling
+* **AI & ML:** RAG pipelines, vector embeddings, LLM integration (Grunden.ai / OpenAI-compatible APIs), PydanticAI agents, retrieval evaluation (hit rate@k, MRR)
 * **Backend & API:** FastAPI, SQLAlchemy, Pydantic, Alembic
-* **Infrastructure & DevOps:** Docker, GitHub Actions (CI/CD), Pytest, Ruff, and Azure Container Apps + ACR [provisioned with Terraform](https://github.com/JohnnyHyytiainen/lab_azure_fullstack_DE25_johnny_hyytiainen)
+* **Infrastructure & DevOps:** Docker, GitHub Actions (CI/CD), Pytest, Ruff, uv, Pydantic Logfire (OpenTelemetry tracing), and Azure Container Apps + ACR [provisioned with Terraform](https://github.com/JohnnyHyytiainen/lab_azure_fullstack_DE25_johnny_hyytiainen)
 * **BI & Visualization:** Grafana, Streamlit, Matplotlib, Power BI
-* **Learning right now:** Snowflake, dlt and Dagster - the genuinely new parts of a data warehouse lifecycle course running this autumn. The rest of that stack (dbt, Streamlit, Azure) is already above, and Dagster is orchestration I've done before in Airflow. Next after that: data contracts, which the course doesn't cover, which is exactly why.
+* **Learning right now:** LLMOps in an AIOps course this autumn. The genuinely new parts are LanceDB, LLM-as-a-judge evaluation, hallucination detection, prompt optimization and MCP, plus the GDPR and EU AI Act side of shipping LLM systems. PydanticAI, FastAPI and Logfire from the same course already run in my degree project.
 ---
 
 ## 📫 Let's have a coffee!
